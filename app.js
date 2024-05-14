@@ -6,13 +6,14 @@ const mongoose=require('mongoose')
 
 const productRoutes=require('./api/routes/products')
 const orderRoutes=require('./api/routes/orders')
-
+const userRoutes=require("./api/routes/user")
 mongoose.connect('mongodb://vasanthrajark:'+process.env.MONGO_ATLAS_PW+'@ac-rln0kig-shard-00-00.thvry6q.mongodb.net:27017,ac-rln0kig-shard-00-01.thvry6q.mongodb.net:27017,ac-rln0kig-shard-00-02.thvry6q.mongodb.net:27017/?ssl=true&replicaSet=atlas-ym9lka-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0').then(()=>{
     console.log("connection made")
 }).catch(error => console.error(error));;
 
 
 app.use(morgan('dev'))
+app.use('/uploads',express.static('uploads'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
@@ -28,6 +29,7 @@ app.use((req,res,next)=>{
 
 app.use('/products',productRoutes)
 app.use('/orders',orderRoutes)
+app.use('/user',userRoutes)
 app.use((req,res,next)=>{
     const error =new Error('Not found');
     error.status=404;
