@@ -1,5 +1,6 @@
 {
     "env":{
-        "MONGO_ATLAS_PW":"vrmongodb"
+        "MONGO_ATLAS_PW":"vrmongodb",
+        "JWT_KEY":"secret123"
     }
 }
