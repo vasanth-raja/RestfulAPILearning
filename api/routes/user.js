@@ -7,4 +7,4 @@ router.post('/login',UserController.user_login)
 router.delete('/:userId',checkAuth,UserController.user_delete)
 
 
-module.exports=routers
+module.exports=router
