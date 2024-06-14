@@ -4,7 +4,7 @@ const router=express.Router();
 const ProductsController=require('../controllers/products')
 const multer=require('multer')
 const checkAuth=require('../middleware/check-auth')
-const checkAuth=require('../middleware/check-auth')
+
 const storage=multer.diskStorage({
     destination: function(req,file,cb){
         cb(null,'./uploads/')
